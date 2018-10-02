@@ -73,26 +73,26 @@ document.addEventListener('init', function(event) {
       console.log("Onsen UI is ready!");
       
       
-        let authWindow_loadStartHandler = function(e) {
-          // Instagramからaccess_tokenが送られれば成功
-          if (m = e.url.match(/#access_token=(.*?)$/)) {
-            //console.log(m);
-            authWindow.close();
-            getPhoto(m[1]);
-          }
-        };
-        let authWindow = window.open(authUrl, '_blank', 'location=no');
-        authWindow.addEventListener('loadstart', authWindow_loadStartHandler);
+        // let authWindow_loadStartHandler = function(e) {
+        //   // Instagramからaccess_tokenが送られれば成功
+        //   if (m = e.url.match(/#access_token=(.*?)$/)) {
+        //     //console.log(m);
+        //     authWindow.close();
+        //     getPhoto(m[1]);
+        //   }
+        // };
+        // let authWindow = window.open(authUrl, '_blank', 'location=no');
+        // authWindow.addEventListener('loadstart', authWindow_loadStartHandler);
         
       
       
-      let getPhoto = (authKey) => {
+      //let getPhoto = (authKey) => {
         $.ajax({
           url: photoUrl,
           type: 'get',
           dataType: 'json',
           data: {
-            access_token: authKey
+            access_token: "7754072054.b0d3957.04ac908a86cc41a4b859296daf8047ac"
           }
         })
         .then((results) => {
@@ -111,7 +111,7 @@ document.addEventListener('init', function(event) {
         err => {
           console.log(JSON.stringify(err));
         })
-      }
+      //}
     });
   }
 
